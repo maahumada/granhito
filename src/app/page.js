@@ -1,6 +1,8 @@
+import HomeSection from "@/sections/Home";
+
 const Home = () => {
   return (
-    <div></div>
+    <HomeSection />
   );
 };
 

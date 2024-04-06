@@ -2,14 +2,23 @@ import { model, models, Schema } from "mongoose";
 
 const HitoSchema = new Schema({
   nombre: String,
-  owner: Schema.Types.ObjectId,
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: "Usuario"
+  },
   objetivo: Number,
   fechaFinal: Date,
-  miembros: [Schema.Types.ObjectId],
-  cvu: Number,
+  miembros: {
+    type: [Schema.Types.ObjectId],
+    ref: "Usuario"
+  },
+  cvu: String,
   alias: String,
   montosSugeridos: [Number],
-  granitos: [Schema.Types.ObjectId]
+  granitos: {
+    type: [Schema.Types.ObjectId],
+    ref: "Granito"
+  }
 });
 
-export default models.HitoSchema || model("Hito", HitoSchema);
+export default models.Hito || model("Hito", HitoSchema);
