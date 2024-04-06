@@ -2,6 +2,8 @@ import connectDB from "@/utils/connectDB";
 import { NextResponse } from "next/server";
 import Comentario from "@/utils/models/Comentario";
 
+
+
 export async function GET(req, { params }){
   try {
     await connectDB();
@@ -15,6 +17,7 @@ export async function GET(req, { params }){
     return NextResponse.json({ error: "Could not retreive Commment"});
   }
 };
+
 
 export async function POST(req, { params }){
   try {
@@ -42,6 +45,6 @@ export async function DELETE(req, { params }){
     const commentario = await Comentario.findByIdAndDelete(body._id);
     return NextResponse.json({ method: "DELETE", success: true });
   }catch(err){
-    return NextResponse.json({ error: "Could not change User"});  
+    return NextResponse.json({ error: "Could not change Comment"});  
   }
 };

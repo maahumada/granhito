@@ -1,5 +1,6 @@
 import connectDB from "@/utils/connectDB";
 import { NextResponse } from "next/server";
+import Granito from "@/utils/models/Granito";
 
 export async function GET(req, { params }){
   try {
@@ -7,7 +8,12 @@ export async function GET(req, { params }){
   }catch(err){
     return NextResponse.json({ error: "Could not connect to Database "});  
   }
-  return NextResponse.json({ method: "GET", success: true });
+  try {
+    const granitos = await Granito.find();
+    return NextResponse.json(granitos);
+  } catch(err) {
+    return NextResponse.json({ error: "Could not retreive Users"});
+  }
 };
 
 export async function POST(req, { params }){
@@ -16,16 +22,14 @@ export async function POST(req, { params }){
   }catch(err){
     return NextResponse.json({ error: "Could not connect to Database "});  
   }
-  return NextResponse.json({ method: "POST", success: true });
-};
-
-export async function PUT(req, { params }){
+  const body = await req.json();
+  console.log(body);
   try {
-    await connectDB();
-  }catch(err){
-    return NextResponse.json({ error: "Could not connect to Database "});  
+    const granito = await Granito.create(body);
+    return NextResponse.json({ success: true, granito });
+  } catch (error) {
+    return NextResponse.json({ error: "Could not create User" });
   }
-  return NextResponse.json({ method: "PUT", success: true });
 };
 
 export async function DELETE(req, { params }){
@@ -34,5 +38,11 @@ export async function DELETE(req, { params }){
   }catch(err){
     return NextResponse.json({ error: "Could not connect to Database "});  
   }
-  return NextResponse.json({ method: "DELETE", success: true });
+  try{
+    const body = await req.json();
+    const granito = await Granito.findByIdAndDelete(body._id);
+    return NextResponse.json({ method: "DELETE", success: true });
+  }catch(err){
+    return NextResponse.json({ error: "Could not change User"});  
+  }
 };
