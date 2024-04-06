@@ -12,4 +12,4 @@ const HitoSchema = new Schema({
   granitos: [Schema.Types.ObjectId]
 });
 
-export default models.HitoSchema || model("Hito", HitoSchema);
+export default models.Hito || model("Hito", HitoSchema);
