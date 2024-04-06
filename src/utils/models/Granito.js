@@ -9,4 +9,4 @@ const GranitoSchema = new Schema({
   comentarios: [Schema.Types.ObjectId]
 });
 
-export default models.GranitoSchema || model("Granito", GranitoSchema);
+export default models.Granito || model("Granito", GranitoSchema);

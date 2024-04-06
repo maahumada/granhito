@@ -6,10 +6,11 @@ const HitoSchema = new Schema({
   objetivo: Number,
   fechaFinal: Date,
   miembros: [Schema.Types.ObjectId],
-  cvu: Number,
+  cvu: String,
   alias: String,
   montosSugeridos: [Number],
-  granitos: [Schema.Types.ObjectId]
+  granitos: [Schema.Types.ObjectId],
+  progreso: Number
 });
 
-export default models.HitoSchema || model("Hito", HitoSchema);
+export default models.Hito || model("Hito", HitoSchema);

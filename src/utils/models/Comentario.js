@@ -5,4 +5,4 @@ const ComentarioSchema = new Schema({
   mensaje: String
 });
 
-export default models.ComentarioSchema || model("Comentario", ComentarioSchema);
+export default models.Comentario || model("Comentario", ComentarioSchema);
