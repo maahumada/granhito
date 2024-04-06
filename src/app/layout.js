@@ -1,8 +1,7 @@
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { Poppins } from "next/font/google";
 import StyledComponentsRegistry from "@/lib/registry";
 
-const inter = Inter({ subsets: ["latin"] });
+const font = Poppins({ subsets: ["latin"], weight: ["300", "400", "500", "700"] });
 
 export const metadata = {
   title: "granhito",
@@ -10,11 +9,11 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  return (
+  return <>
     <html lang="es">
-      <body className={inter.className}>
+      <body className={font.className}>
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>
-  );
+  </>;
 }
