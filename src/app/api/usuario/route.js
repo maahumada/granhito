@@ -8,12 +8,19 @@ export async function GET(req, { params }){
   }catch(err){
     return NextResponse.json({ error: "Could not connect to Database "});  
   }
-  try {
-    const usuarios = await Usuario.find();
-    return NextResponse.json(usuarios);
-  } catch(err) {
-    return NextResponse.json({ error: "Could not retreive Users"});
-  }
+  const { searchParams } = new URL(req.url);
+  const id = searchParams.get("id");
+  if (id) {
+    const usuario = await Usuario.findById(id);
+    if (usuario) {
+      return NextResponse.json(usuario);
+    } else {
+        return NextResponse.json({ error: "User not found" });
+    }
+  } else {
+    const usuario = await Usuario.find();
+    return NextResponse.json(usuario);
+  };
 };
 
 export async function POST(req, { params }){
