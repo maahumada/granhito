@@ -2,7 +2,10 @@ import { model, models, Schema } from "mongoose";
 
 const HitoSchema = new Schema({
   nombre: String,
-  owner: Schema.Types.ObjectId,
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: "Usuario"
+  },
   objetivo: Number,
   fechaFinal: Date,
   miembros: [Schema.Types.ObjectId],

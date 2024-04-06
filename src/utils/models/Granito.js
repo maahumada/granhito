@@ -4,9 +4,15 @@ const GranitoSchema = new Schema({
   owner: Schema.Types.ObjectId,
   monto: Number,
   mensaje: String,
-  likes: [Schema.Types.ObjectId],
+  likes: {
+    type: [Schema.Types.ObjectId],
+    ref: "Usuario"
+  },
   adjunto: String,
-  comentarios: [Schema.Types.ObjectId]
+  comentarios: {
+    type: [Schema.Types.ObjectId],
+    ref: "Comentario"
+  }
 });
 
 export default models.Granito || model("Granito", GranitoSchema);
