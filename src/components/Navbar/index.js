@@ -8,6 +8,10 @@ const Navbar = () => {
 
   const {data: session} = useSession();
 
+  const logOut = () => {
+    signOut({ callbackUrl: "/", redirect: true });
+  }
+
   return (
     <Wrapper>
       <LogoContainer onClick={() => push("/")}>
@@ -15,7 +19,7 @@ const Navbar = () => {
         <LogoTitle>granhito</LogoTitle>
       </LogoContainer>
       {session && <UserContainer>
-        <NavLink onClick={() => signOut()}>Cerrar Sesion</NavLink>
+        <NavLink onClick={() => logOut()}>Cerrar Sesion</NavLink>
         <ProfilePicture width={52} height={52} src={session.user.image} />
       </UserContainer>}
       {!session && <UserContainer>
