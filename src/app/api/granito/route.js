@@ -29,6 +29,7 @@ export async function POST(req, { params }){
     let hito = await Hito.findById(hitoID);
     const granito = await Granito.create(body);
     hito.granitos.push(granito._id);
+    hito.progreso += granito.monto;
     await hito.save();
     return NextResponse.json({ success: true, granito });
   } catch (error) {
@@ -44,8 +45,11 @@ export async function DELETE(req, { params }){
   }
   try{
     const body = await req.json();
-    const granito = await Granito.findByIdAndDelete(body._id);
-    return NextResponse.json({ method: "DELETE", success: true });
+    const granito = await Granito.findByIdAndDelete(body.id);
+    let hito = await Hito.findById(body.hitoID);
+    hito.progreso -= granito.monto;
+    await hito.save();
+    return NextResponse.json({ method: "DELETE", success: true, granito });
   }catch(err){
     return NextResponse.json({ error: "Could not change Granito"});  
   }

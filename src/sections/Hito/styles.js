@@ -95,6 +95,7 @@ export const Box = styled.div`
   min-height: 600px;
   padding: 12px;
   gap: 12px;
+  height: ${props => props.center ? "700px" : "auto"};
 `
 
 export const Granito = styled.div`
@@ -125,6 +126,7 @@ export const UserInfo = styled.p`
   font-size: 40px;
   font-weight: 400;
   color: #000000;
+  max-width: 600px;
 `
 
 export const Amount = styled.p`
@@ -160,7 +162,8 @@ export const ActionText = styled.p`
 export const ActionIcon = styled(Image)`
 `
 
-export const MyPicture = styled(Image)`
+export const MyPicture = styled.img`
+  border-radius: 100%; 
 `
 
 export const Message = styled.p`
@@ -186,6 +189,7 @@ export const AmountButton = styled.button`
   color: #000000;
   font-weight: 400;
   cursor: pointer;
+  overflow: hidden;
 `
 
 export const AmountButtonInput = styled.input`
@@ -198,6 +202,10 @@ export const AmountButtonInput = styled.input`
   font-size: 32px;
   color: #000000;
   font-weight: 400;
+
+  &:focus {
+    background: #EFDF4F;
+  }
 `
 
 export const Label = styled.p`
@@ -226,4 +234,14 @@ export const FileUploadContainer = styled.div`
   align-items: center;
   gap: 12px;
   align-self: flex-start;
+`
+
+export const OwnerOptions = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  background: #AD7D00;
+  border-radius: 6px;
 `

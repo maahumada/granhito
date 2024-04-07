@@ -4,13 +4,14 @@ import Image from "next/image";
 import { styled } from "styled-components";
 
 export const Wrapper = styled.div`
-  background: rgba(0, 0, 0, .1);
+  background: ${props => props.completed ? "#FDBB5A" : "rgba(0, 0, 0, .1)"};
   width: calc(100% - 32px);
   display: flex;
   flex-direction: column;
   gap: 8px;
   border-radius: 24px;
   padding: 6px 16px;
+  cursor: pointer;
 `
 
 export const InfoContainer = styled.div`
@@ -76,7 +77,7 @@ export const ProgressFilled = styled.div`
   left: 0;
   height: 100%;
   width: 60%;
-  background: #EFDF4F;
+  background: ${props => props.completed ? "#AD7D00" : "#EFDF4F"};
   border-radius: 8px;
   width: ${props => "calc(100% * " + props.percentage + ")"};
 `

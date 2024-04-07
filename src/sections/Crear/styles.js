@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { styled } from "styled-components";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.form`
   display: flex;
   justify-content: center;
   width: 100%;
@@ -132,7 +132,7 @@ export const AmountList = styled.div`
   justify-content: space-between;
 `
 
-export const AmountButton = styled.button`
+export const AmountButton = styled.div`
   background: ${props => props.selected ? "#EFDF4F" : "#D9D9D9"};
   border: none;
   width: 24%;

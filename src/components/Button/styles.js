@@ -2,7 +2,7 @@
 
 import { styled } from "styled-components";
 
-export const Container = styled.button`
+export const Container = styled.div`
   padding: 10px 30px;
   border-radius: 12px;
   font-size: 40px;
@@ -11,4 +11,7 @@ export const Container = styled.button`
   border: none;
   color: #FFFFFF;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `

@@ -1,7 +1,8 @@
 import { model, models, Schema } from "mongoose";
 
 const GranitoSchema = new Schema({
-  owner: Schema.Types.ObjectId,
+  owner: String,
+  ownerName: String,
   monto: Number,
   mensaje: String,
   likes: {
@@ -12,6 +13,10 @@ const GranitoSchema = new Schema({
   comentarios: {
     type: [Schema.Types.ObjectId],
     ref: "Comentario"
+  },
+  verificado: {
+    type: Boolean,
+    default: false
   }
 });
 

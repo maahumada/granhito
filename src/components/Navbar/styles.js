@@ -36,17 +36,20 @@ export const LogoTitle = styled.h1`
 export const UserContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
 `
 
-export const NavLink = styled(Link)`
-  font-size: 42px;
+export const NavLink = styled.button`
+  font-size: 32px;
   color: #FFFFFF;
   font-weight: 400;
   text-decoration: none;
+  border: none;
+  background: none;
+  cursor: pointer;
 `
 
-export const ProfilePicture = styled(Image)`
+export const ProfilePicture = styled.img`
   border-radius: 100%;
   cursor: pointer;
 `

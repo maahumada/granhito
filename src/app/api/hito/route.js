@@ -1,6 +1,8 @@
 import connectDB from "@/utils/connectDB";
 import { NextResponse } from "next/server";
 import Hito from "@/utils/models/Hito";
+import Usuario from "@/utils/models/Usuario";
+import Granito from "@/utils/models/Granito";
 
 export async function GET(req, { params }){
   try {
@@ -12,7 +14,7 @@ export async function GET(req, { params }){
   const id = searchParams.get("id");
   if (id) {
     // Retrieve the specific object by its ID
-    const hito = await Hito.findById(id);
+    let hito = await Hito.findById(id).populate("granitos");
     
     // Check if the object is found
     if (hito) {
@@ -33,11 +35,13 @@ export async function POST(req, { params }){
   }catch(err){
     return NextResponse.json({ error: "Could not connect to Database "});  
   }
-  const body = await req.json();
+  let body = await req.json();
+  console.log(body)
   try {
     const hito = await Hito.create(body);
     return NextResponse.json({ success: true, hito });
   } catch (error) {
+    console.log(error)
     return NextResponse.json({ error: "Could not create Hito" });
   }
 };

@@ -6,14 +6,24 @@ const HitoSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Usuario"
   },
+  ownerEmail: {
+    type: String
+  },
   objetivo: Number,
   fechaFinal: Date,
-  miembros: [Schema.Types.ObjectId],
+  miembros: [String],
   cvu: String,
   alias: String,
   montosSugeridos: [Number],
-  granitos: [Schema.Types.ObjectId],
-  progreso: Number
-});
+  granitos: {
+    type: [Schema.Types.ObjectId],
+    default: [],
+    ref: "Granito"
+  },
+  progreso: {
+    type: Number,
+    default: 0
+  }
+}, { timestamps: true });
 
 export default models.Hito || model("Hito", HitoSchema);
