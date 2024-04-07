@@ -39,7 +39,7 @@ const HomeSection = () => {
   return (
     <Wrapper>
       <Actions>
-        <Button onClick={() => push("/crear")}>Crear Hito</Button>
+        {session && <Button onClick={() => push("/crear")}>Crear Hito</Button>}
         {/* <SortContainer>
           <SortTitle>Ordenar</SortTitle>
           <SortIcon width={67} height={67} src="/icons/sort.png" />

@@ -1,3 +1,3 @@
 export { default } from "next-auth/middleware"
 
-export const config = { matcher: ["/dashboard"] }   // agregar con ,
+export const config = { matcher: ["/crear", "/hito/:id*"] }   // agregar con ,
