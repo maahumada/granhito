@@ -142,6 +142,9 @@ export const AmountButton = styled.div`
   color: #000000;
   font-weight: 400;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 export const AmountButtonInput = styled.input`

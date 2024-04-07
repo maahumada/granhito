@@ -41,6 +41,11 @@ const CrearSection = () => {
     }
   };
 
+  const addMember = () => {
+    setMembers([...members, inputValue]);
+    setInputValue("");
+  }
+
   return (
     <Wrapper>
       <Container>
@@ -58,7 +63,7 @@ const CrearSection = () => {
             <BoxATitle>Agregar miembros</BoxATitle>
             <AddMemberContainer>
               <AddMemberInput value={inputValue} onChange={e => setInputValue(e.target.value)} />
-              <AddMemberIcon width={26} height={22} src="/icons/send.png" onClick={() => !members.includes(inputValue) && setMembers([...members, inputValue])} />
+              <AddMemberIcon width={26} height={22} src="/icons/send.png" onClick={() => !members.includes(inputValue) && addMember()} />
             </AddMemberContainer>
             {members.map((member, index) => <MemberContainer key={index}>
               <Member>{member}</Member>
