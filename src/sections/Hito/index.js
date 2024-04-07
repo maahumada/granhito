@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import parseDate from "@/utils/functions/parseDate";
 import { useForm } from "react-hook-form";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const HitoSection = ({ hitoId }) => {
 
@@ -15,6 +16,8 @@ const HitoSection = ({ hitoId }) => {
   const { register, handleSubmit } = useForm();
 
   const {data: session} = useSession();
+
+  const { push } = useRouter();
 
   useEffect(() => {
     const a = async() => {
@@ -70,6 +73,17 @@ const HitoSection = ({ hitoId }) => {
     window.location.reload();
   }
 
+  const leave = async() => {
+    await fetch(`/api/hito/removeMember`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ _id: hitoId, member: session?.user?.email })
+    }).then(res => res.json());
+    push("/");
+  }
+
   return (
     <Wrapper>
       <Container>
@@ -88,7 +102,7 @@ const HitoSection = ({ hitoId }) => {
         </NameContainer>
         <DescriptionContainer>
           <Description>Alias {hito.alias} | CVU {hito.cvu}</Description>
-          {session?.user?.email != hito?.ownerEmail && <Button small={true}>ABANDONAR</Button>}
+          {session?.user?.email != hito?.ownerEmail && <Button small={true} onClick={leave}>ABANDONAR</Button>}
         </DescriptionContainer>
         <ProgressContainer>
           <ProgressFilled percentage={hito.progreso / hito.objetivo} />
