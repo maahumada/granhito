@@ -29,7 +29,7 @@ const HitoSmall = ({ _id, nombre, objetivo, fechaFinal, cantidadMiembros, progre
             <StatIcon width={28} height={28} src="/icons/time.png" />
           </Stat>
         </Stats>
-        <Delete width={29} height={32} src="/icons/delete.png" />
+        {/* <Delete width={29} height={32} src="/icons/delete.png" /> */}
       </StatsContainer>
     </Wrapper>
   )

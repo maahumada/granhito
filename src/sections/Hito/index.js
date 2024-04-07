@@ -1,7 +1,7 @@
 'use client'
 
 import Button from "@/components/Button";
-import { Action, ActionIcon, ActionText, Actions, Amount, AmountButton, AmountButtonInput, AmountList, Box, BoxesContainer, Container, Description, FileUpload, FileUploadContainer, Granito, Input, Label, Message, MyPicture, Name, NameContainer, OwnerOptions, ProfilePicture, ProgressContainer, ProgressFilled, Row, Stat, StatIcon, StatText, Stats, UserContainer, UserInfo, UserMessage, Wrapper } from "./styles";
+import { Action, ActionIcon, ActionText, Actions, Amount, AmountButton, AmountButtonInput, AmountList, Box, BoxesContainer, Container, Description, DescriptionContainer, FileUpload, FileUploadContainer, Granito, Input, Label, Message, MyPicture, Name, NameContainer, OwnerOptions, ProfilePicture, ProgressContainer, ProgressFilled, Row, Stat, StatIcon, StatText, Stats, UserContainer, UserInfo, UserMessage, Wrapper } from "./styles";
 import { useEffect, useState } from "react";
 import parseDate from "@/utils/functions/parseDate";
 import { useForm } from "react-hook-form";
@@ -86,7 +86,10 @@ const HitoSection = ({ hitoId }) => {
             </Stat>
           </Stats>
         </NameContainer>
-        <Description>Alias {hito.alias} | CVU {hito.cvu}</Description>
+        <DescriptionContainer>
+          <Description>Alias {hito.alias} | CVU {hito.cvu}</Description>
+          {session?.user?.email != hito?.ownerEmail && <Button small={true}>ABANDONAR</Button>}
+        </DescriptionContainer>
         <ProgressContainer>
           <ProgressFilled percentage={hito.progreso / hito.objetivo} />
         </ProgressContainer>
