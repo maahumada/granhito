@@ -1,7 +1,7 @@
 'use client'
 
 import Button from "@/components/Button";
-import { Action, ActionIcon, ActionText, Actions, Amount, AmountButton, AmountButtonInput, AmountList, Box, BoxesContainer, Container, Description, DescriptionContainer, FileUpload, FileUploadContainer, Granito, Input, Label, Message, MyPicture, Name, NameContainer, OwnerOptions, ProfilePicture, ProgressContainer, ProgressFilled, Row, Stat, StatIcon, StatText, Stats, UserContainer, UserInfo, UserMessage, Wrapper } from "./styles";
+import { Action, ActionIcon, ActionText, Actions, Amount, AmountButton, AmountButtonInput, AmountList, Box, BoxesContainer, Container, Description, DescriptionContainer, FileUpload, FileUploadContainer, Granito, Input, Label, Message, MyPicture, Name, NameContainer, OwnerOptions, ProfilePicture, ProgressContainer, ProgressFilled, ProgressText, Row, Stat, StatIcon, StatText, Stats, UserContainer, UserInfo, UserMessage, Wrapper } from "./styles";
 import { useEffect, useState } from "react";
 import parseDate from "@/utils/functions/parseDate";
 import { useForm } from "react-hook-form";
@@ -89,6 +89,9 @@ const HitoSection = ({ hitoId }) => {
       <Container>
         <NameContainer>
           <Name>{hito.nombre}</Name>
+          <ProgressText>
+            ${hito.progreso} de ${hito.objetivo} (${(hito.progreso / hito.objetivo * 100).toFixed(1)}%)
+          </ProgressText>
           <Stats>
             <Stat>
               <StatText>{hito.miembros?.length}</StatText>
@@ -101,7 +104,7 @@ const HitoSection = ({ hitoId }) => {
           </Stats>
         </NameContainer>
         <DescriptionContainer>
-          <Description>Alias {hito.alias} | CVU {hito.cvu}</Description>
+          <Description>Alias {hito.alias} | CVU {hito.cvu} | Creado por {hito.ownerEmail}</Description>
           {session?.user?.email != hito?.ownerEmail && <Button small={true} onClick={leave}>ABANDONAR</Button>}
         </DescriptionContainer>
         <ProgressContainer>

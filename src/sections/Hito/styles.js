@@ -51,6 +51,12 @@ export const StatText = styled.p`
 export const StatIcon = styled(Image)`
 `
 
+export const ProgressText = styled.p`
+  font-size: 40px;
+  font-weight: 400;
+  color: #000000;
+`
+
 export const DescriptionContainer = styled.div`
   display: flex;
   align-items: center;
