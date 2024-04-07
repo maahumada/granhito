@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# granhito by binaryTreeEnjoyers
 
-## Getting Started
+## Integrantes
+* Juan Ignacio Lategana
+* Manuel Ahumada
+* Miranda Ormaechea Graiver
+* Nicolas Priotto
 
-First, run the development server:
+*El setup inicial y la ejecucion del proyecto ejecutan sus comandos desde la carpeta root del proyecto*
 
+## Setup inicial
+Las siguientes instrucciones deben realizarse por unica vez antes de la primera ejecucion del proyecto:
+1. Para la ejecucion del proyecto es necesaria la instalacion previa de [NodeJS](https://nodejs.org/en) con una version mayor o igual a v18.17
+1. Se deben instalar las dependencias del proyecto mediante:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Ejecucion del proyecto
+La ejecucion debe ser realizada despues de completar el Setup inicial.
+```bash
+npm run start:prod
+# o
+npm run build
+npm run start
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Abrir [http://localhost:3000](http://localhost:3000) en un navegador web para ver la webapp.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Deploy
 
-## Learn More
+El proyecto cuenta con un deploy integrado con GitHub (Automaticamente actualizado) en https://granhito.vercel.app. El mismo puede accederse desde cualquier navegador web.
 
-To learn more about Next.js, take a look at the following resources:
+## Otros
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Este es un proyecto en [Next.js](https://nextjs.org/) bootstrapped con [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
